@@ -26,10 +26,4 @@ Next create `~/.tmux.conf` with the contents:
 source-file ~/.tmux/tmux.conf
 ```
 
-or copy `<repo-root>/tmux.conf` to `~/.tmux.conf`:
-
-```bash
-cp tmux/tmux.conf ~/.tmux.conf
-```
-
 Then, open `tmux` and press `ctrl-space` + `I` to install plugins.
