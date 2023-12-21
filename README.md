@@ -17,7 +17,7 @@ brew install tmux
 Clone this repository to `~/.tmux`:
 
 ```bash
-git clone --depth 1 https://github.com/nicholasadamou/tmux ~/.tmux
+git clone --recursive https://github.com/nicholasadamou/tmux ~/.tmux
 ```
 
 Next create `~/.tmux.conf` with the contents:
