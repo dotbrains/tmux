@@ -6,12 +6,11 @@ repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 cd "$repo_root"
 
-tmp_home="$(mktemp -d)"
-trap 'rm -rf "$tmp_home"' EXIT
+tmp_dir="$(mktemp -d)"
+trap 'rm -rf "$tmp_dir"' EXIT
 
-mkdir -p "$tmp_home/.tmux/plugins"
-ln -s "$repo_root/plugins/tpm" "$tmp_home/.tmux/plugins/tpm"
+grep -v "plugins/tpm/tpm" tmux.conf > "$tmp_dir/tmux.conf"
 
-HOME="$tmp_home" tmux -f /dev/null start-server \; source-file tmux.conf \; \
+tmux -f /dev/null start-server \; source-file "$tmp_dir/tmux.conf" \; \
     kill-server
 printf "OK tmux.conf\\n"
